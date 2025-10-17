@@ -1,0 +1,170 @@
+/* Using system fonts instead of Google Fonts for better performance and offline support */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for Brand Colors */
+:root {
+  --brand: #0079BF;
+  --gold: #F0B331;
+  --cream: #FDF4E7;
+  --accent: #CCE6F5;
+  
+  /* Light theme colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+}
+
+/* Dark theme colors */
+.dark {
+  --brand: #4A90E2;
+  --gold: #FFD700;
+  --cream: #2D2D2D;
+  --accent: #1A365D;
+  
+  --bg-primary: #1A1A1A;
+  --bg-secondary: #2D2D2D;
+  --text-primary: #E5E5E5;
+  --text-secondary: #B0B0B0;
+  --border-color: #404040;
+}
+
+/* Base Styles */
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  body {
+    @apply bg-white dark:bg-dark-primary text-gray-800 dark:text-dark-text;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Arial', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-brand dark:text-brand-dark;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  a {
+    @apply transition-colors duration-300;
+  }
+
+  /* Dark theme specific styles */
+  .dark {
+    color-scheme: dark;
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand to-gold bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply bg-brand text-white px-6 py-3 rounded-lg font-bold hover:bg-brand/90 transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-gold text-brand px-6 py-3 rounded-lg font-bold hover:bg-gold/90 transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 px-4 md:px-8;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+  }
+
+  /* Dashboard specific styles */
+  .sidebar {
+    @apply fixed top-0 right-0 h-full w-64 bg-white dark:bg-dark-secondary shadow-lg transform transition-transform duration-300 ease-in-out;
+  }
+
+  .sidebar-closed {
+    @apply translate-x-full;
+  }
+
+  .main-content {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .main-content-sidebar-open {
+    @apply mr-64;
+  }
+
+  .dashboard-card {
+    @apply bg-white dark:bg-dark-secondary rounded-lg shadow-md p-6 border border-gray-200 dark:border-dark-border;
+  }
+
+  .stat-card {
+    @apply dashboard-card hover:shadow-lg transition-all duration-300;
+  }
+
+  .chart-container {
+    @apply dashboard-card h-96;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Loading Spinner */
+.spinner {
+  border: 3px solid rgba(0, 121, 191, 0.1);
+  border-top: 3px solid var(--brand);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
