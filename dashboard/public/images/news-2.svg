@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#28a745"/>
+  <path d="M 150 100 L 200 80 L 250 100 L 250 180 L 200 200 L 150 180 Z" fill="#fff" opacity="0.3"/>
+  <text x="200" y="140" font-family="Arial" font-size="24" fill="#fff" text-anchor="middle" font-weight="bold">التوعية البيئية</text>
+  <circle cx="100" cy="220" r="15" fill="#fff" opacity="0.5"/>
+  <circle cx="200" cy="220" r="15" fill="#fff" opacity="0.5"/>
+  <circle cx="300" cy="220" r="15" fill="#fff" opacity="0.5"/>
+</svg>
